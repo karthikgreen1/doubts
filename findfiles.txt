@@ -1,0 +1,26 @@
+# /bin/sh
+# change the test folder = /dir/listofxls
+files="$(ls data)" 
+for line in $files;do
+    #cp $line $line.txt
+    #xlsx2csv Server_Inventory_Linux.xlsx Server_Inventory_Linux.csv
+  xlsx2csv $line data/$line.csv # uncomment to enable xls2csv function
+done
+CSV_Sample
+
+---
+- hosts: localhost
+  tasks:
+  - shell: files="$(ls data)" 
+           for line in $files;do
+           xlsx2csv $line data/$line.csv 
+           done
+
+---
+- hosts: localhost
+  tasks:
+    - name: Run the below script
+      command: sh CSV_Sample/Find_files.sh
+
+ - shell: xlsx2csv Server_Inventory_Linux.xlsx Server_Inventory_Linux.csv
+ 
