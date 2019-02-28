@@ -1,0 +1,6 @@
+---- hosts: localhost 
+tasks: 
+   - name: executing the script 
+     script: ./process_file.sh 
+     register: output 
+  - debug: var=output.stdout_lines
