@@ -1,0 +1,13 @@
+---- hosts: localhost 
+tasks: 
+   - name: executing the script 
+     script: ./process_file.sh 
+     register: output 
+  - debug: var=output.stdout_lines
+
+
+label.change_task.short_description
+change_task
+change_task.description
+change_task.change_request
+
