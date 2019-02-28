@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  tasks:
+    - command: ./CSV_Sample/Find_files.sh
+
+
+fatal: [localhost]: FAILED! => {"changed": false, "cmd": "./CSV_Sample/Find_files.sh", "msg": "[Errno 2] No such fi
+le or directory", "rc": 2}
+
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["sh", "CSV_Sample/Find_files.sh"], "delta": "0:00:00.00490
+3", "end": "2019-02-28 11:17:01.847689", "msg": "non-zero return code", "rc": 127, "start": "2019-02-28 11:17:01.84
+2786", "stderr": "sh: CSV_Sample/Find_files.sh: No such file or directory", "stderr_lines": ["sh: CSV_Sample/Find_f
+iles.sh: No such file or directory"], "stdout": "", "stdout_lines": []}
+change_creation_yaml.yml  file2.yml      iterate_c
+
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["sh", "root/CSV_Sample/Find_files.sh"], "delta": "0:00:00.
+004895", "end": "2019-02-28 11:18:58.553528", "msg": "non-zero return code", "rc": 127, "start": "2019-02-28 11:18:
+58.548633", "stderr": "sh: root/CSV_Sample/Find_files.sh: No such file or directory", "stderr_lines": ["sh: root/CS
+V_Sample/Find_files.sh: No such file or directory"], "stdout": "", "stdout_lines": []}K [command] 
+
+xls_to_csv.yml
+---
+- hosts: localhost
+  tasks:
+  - shell: ./CSV_Sample/Find_files.sh
+
+
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "./CSV_Sample/Find_files.sh", "delta": "0:00:00.004418", "e
+nd": "2019-02-28 11:29:32.044735", "msg": "non-zero return code", "rc": 127, "start": "2019-02-28 11:29:32.040317",
+ "stderr": "/bin/sh: ./CSV_Sample/Find_files.sh: No such file or directory", "stderr_lines": ["/bin/sh: ./CSV_Sampl
+e/Find_files.sh: No such file or directory"], "stdout": "", "stdout_lines":
