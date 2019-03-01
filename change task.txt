@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: False
+  tasks:
+  - name: Create a ticket
+    snow_record:
+      username: admin
+      password: Ctss-2019
+      instance: dev54625
+      state: present
+      table: change_task
+      data:
+        change_task.short_description: "This is the task ticket from ansible"
+        change_task.change_request: "CHG0030001"
+    register: new_change_task
