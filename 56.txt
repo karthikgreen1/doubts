@@ -1,0 +1,31 @@
+# /bin/sh
+# change the data folder in case if it is different 
+files="$(ls data)"
+for line in $files ; do 
+#cp $line $line.txt 
+xlsx2csv $line data/$line.csv 
+$line
+done
+
+
+# /bin/sh
+# change the test folder = /dir/listofxls
+files="$(ls data)"
+for line in $files ; do 
+#cp $line $line.txt 
+xlsx2csv $line data/$line.csv 
+# uncomment to enable xls2csv function echo 
+$line
+done
+
+
+
+
+Try this …..
+
+---- hosts: localhost 
+tasks: 
+   - name: executing the script 
+     script: ./process_file.sh 
+     register: output 
+  - debug: var=output.stdout_lines
