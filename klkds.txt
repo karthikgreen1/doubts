@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  tasks:
+     - name: "Converting xlsx file to csv undet in /ansible directory"
+       shell: for file in ls -l /devops/*.xlsx; do xlsx2csv   "${file}" "${file%.xlsx}".csv > /dev/null 2>&1; done
+     - name: "Fetching csv file form the directory"
+       shell: "ls -d /devops/*.csv"
+       register: csv
+       vars:
+          filename: "{{item}}"
+       with_items:
+          - "{{csv.stdout_lines}}"
+
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": "for file in ls -l /devops/*.xlsx; do xlsx2csv \"${file}\" \"${file%.xlsx}\".csv > /dev/null 2>&1; done", "delta": "0:0
+0:00.126121", "end": "2019-03-13 11:37:30.351003", "msg": "non-zero return code", "rc": 1, "start": "2019-03-13 11:37:30.224882", "stderr": "", "stderr_lines": [], "stdout": "
+", "stdout_lines": []}
