@@ -1,0 +1,15 @@
+Hi Karthik,
+
+1.	I created mkdir /ansible and put all my excel files under /ansible directory. So I just mentioned in playbook to search under /ansible directory. So please make sure your file location
+2.	The below error clearly saying that you have added “ in front of forloop and getting an error. So you mentioned \"${file}\" and \"${file%.xlsx}\".csv separately and closed the double quotes in done. 
+
+Please remove double quotes and use this line in shell command as I given 
+ shell: for file in ls -l /devops/*.xlsx; do xlsx2csv   "${file}" "${file%.xlsx}".csv > /dev/null 2>&1; done 
+
+“fatal: [localhost]: FAILED! => {"changed": true, "cmd": "for file in ls -l /devops/*.xlsx; do xlsx2csv \"${file}\" \"${file%.xlsx}\".csv > /dev/null 2>&1; done", "delta": "0:0
+0:00.126121", "end": "2019-03-13 11:37:30.351003", "msg": "non-zero return code", "rc": 1, "start": "2019-03-13 11:37:30.224882", "stderr": "", "stderr_lines": [], "stdout": "
+", "stdout_lines": []}” 
+
+
+Regards
+Sangeetha S
